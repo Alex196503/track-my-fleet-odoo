@@ -1,0 +1,39 @@
+<odoo>
+        <record id="email_template_overdue_maintenance" model="mail.template">
+            <field name="name">Fleet Maintenance: Overdue Report</field>
+            <field name="model_id" ref="model_fleet_maintenance"/>
+            <field name="subject">Weekly Overdue Maintenance Report - {{ object.env.company.name }}</field>
+            <field name="email_from">{{ (object.env.user.email_formatted or object.env.company.email) }}</field>
+            <field name="description">Weekly summary email sent to maintenance coordinators with overdue tasks.</field>
+            <field name="body_html" type="html">
+                <div style="font-family: Arial, sans-serif; font-size: 14px;">
+                    <p>Hello Maintenance Coordinator,</p>
+                    <p>Here is the weekly list of overdue maintenance tasks that need immediate attention:</p>
+                    <table border="1" cellpadding="6" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+                        <thead>
+                            <tr style="background-color: #f2f2f2;">
+                                <th>Title</th>
+                                <th>Vehicle</th>
+                                <th>Defect</th>
+                                <th>Target Date</th>
+                                <th>Technician</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="ctx.get('overdue_records', [])" t-as="rec">
+                                <tr>
+                                    <td><t t-out="rec.name"/></td>
+                                    <td><t t-out="rec.vehicle_id.display_name"/></td>
+                                    <td><t t-out="rec.defect_type"/></td>
+                                    <td style="color: red; font-weight: bold;"><t t-out="rec.target_date"/></td>
+                                    <td><t t-out="rec.tehnician.name or 'Unassigned'"/></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                    <p style="margin-top: 20px;">Please take appropriate actions to resolve these tasks.</p>
+                    <p>Best regards,<br/><strong>Fleet Management System</strong></p>
+                </div>
+            </field>
+        </record>
+</odoo>

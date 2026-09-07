@@ -5,9 +5,11 @@
     'version': '17.0.1.0.0',
     'license': 'AGPL-3',
     'category': 'Fleet',
-    'depends': ['base', "fleet", "account", "account_fleet"],
+    'depends': ['base', "fleet", "account", "account_fleet", "mail"],
     'data':[
         'security/res_groups.xml',
+        "data/mail_template_data.xml",
+        'data/cron_data.xml',
         'security/ir.model.access.csv',
         'views/fleet_maintenance_views.xml',
         'views/fleet_maintenance_menus.xml'
