@@ -1,0 +1,25 @@
+<odoo>
+<data>
+<record id="demo_brand_bmw" model="fleet.vehicle.model.brand">
+    <field name="name">BMW</field>
+</record>
+<record id="demo_vehicle_audi" model="fleet.vehicle">
+    <field name="license_plate">CJ-99-AUD</field>
+    <field name="model_id" ref="fleet.model_a4"/>
+</record>
+<record id="demo_vehicle_bmw" model="fleet.vehicle">
+    <field name="license_plate">B-100-BMW</field>
+    <field name="model_id" ref="fleet.model_series_3"/>
+</record>
+<record id="demo_maintenance_1" model="fleet.maintenance">
+    <field name="name">Changing brake pads</field>
+    <field name="vehicle_id" ref="demo_vehicle_audi"/>
+    <field name="mileage">145000</field>
+    <field name="defect_type">brakes</field>
+    <field name="priority">2</field>
+    <field name="stage">in_progress</field>
+    <field name="estimated_down_time">3.5</field>
+    <field name="service_cost">250.0</field>
+</record>
+</data>
+</odoo>
