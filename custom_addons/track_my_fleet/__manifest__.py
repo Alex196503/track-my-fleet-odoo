@@ -17,6 +17,12 @@
     'demo':[
         "demo/demo.xml"
     ],
+    'assets':{
+        'web.assets_backend':[
+        'track_my_fleet/static/src/components/maintenance_summary.js',
+        'track_my_fleet/static/src/components/maintenance_summary.xml',
+        ]
+    },
     'installable' : True,
     'application': True
 }
