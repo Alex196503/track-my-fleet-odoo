@@ -4,6 +4,10 @@
         <field name="res_model">fleet.vehicle</field>
         <field name="view_mode">tree,kanban,form</field>
 </record>
+<record id="action_fleet_maintenance_summary" model="ir.actions.client">
+        <field name="name">Maintenance Overview</field>
+        <field name="tag">fleet_maintenance_summary_tag</field>
+    </record>
 <record id="view_fleet_maintenance_form" model="ir.ui.view">
     <field name="name">fleet.maintenance.form</field>
     <field name="model">fleet.maintenance</field>

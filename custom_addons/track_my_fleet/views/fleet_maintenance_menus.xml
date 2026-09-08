@@ -2,4 +2,5 @@
 <menuitem id="menu_fleet_maintenance_root" name="TrackMyFleet" sequence="10"/>
 <menuitem id="menu_fleet_maintenance_records" name="Maintenance Records" parent="menu_fleet_maintenance_root" action="action_fleet_maintenance" sequence="10"/>
 <menuitem id="menu_fleet_vehicles" name="Vehicles" parent="menu_fleet_maintenance_root" action="action_track_my_fleet_vehicles" sequence="20"/>
+<menuitem id="menu_fleet_maintenance_summary" name="Dashboard Summary" parent="menu_fleet_maintenance_root" action="action_fleet_maintenance_summary" sequence="25"/>
 </odoo>

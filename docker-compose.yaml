@@ -1,11 +1,32 @@
 version: "3.8"
 services:
-  mailjet:
-    image: axllent/mailpit:latest
-    container_name: mailpit
+  db:
+    image: postgres:15
+    container_name: odoo-db
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=odoo
+      - POSTGRES_PASSWORD=odoo
+    volumes:
+      - odoo-db-data:/var/lib/postgresql/data
     restart: always
+  web:
+    build: .
+    ports:
+      - "8000:8069"
+    depends_on:
+      - db
+      - mailpit
+    environment:
+      - HOST=db
+      - USER=odoo
+      - PASSWORD=odoo
+  mailpit:
+    image: axllent/mailpit:latest
     ports:
       - "1025:1025"
       - "8025:8025"
     environment:
       - MP_MAX_MESSAGE=5000
+volumes:
+  odoo-db-data:
