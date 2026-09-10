@@ -39,11 +39,13 @@ export class MaintenanceSummary extends Component {
       "fleet.maintenance",
       [
         ["priority", "=", "3"],
-        ["stage", "!=", "done"]
+        ["stage", "!=", "completed"]
       ],
       ["id", "vehicle_id", "defect_type", "stage"]
     )
-    this.state.highPriorityList = highPriorityRecords
+    this.state.highPriorityList = highPriorityRecords.filter(
+      (record) => record.stage !== "completed"
+    )
     this.state.counts = newCounts
   }
 }

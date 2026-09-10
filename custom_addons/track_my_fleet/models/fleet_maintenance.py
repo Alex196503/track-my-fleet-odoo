@@ -5,6 +5,7 @@ class FleetMaintenance(models.Model):
     _name = "fleet.maintenance"
     _description = "First module"
     _inherit = ['mail.thread', 'mail.activity.mixin']
+    
     name = fields.Char(required = True, string = "Name")
     vehicle_id = fields.Many2one("fleet.vehicle", string = "Vehicle", required = True)
     mileage = fields.Integer(string='Mileage at Service', required=True)
